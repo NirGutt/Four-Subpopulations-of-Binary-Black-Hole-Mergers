@@ -1,0 +1,26 @@
+alpha_1 = Uniform(name='alpha_1', minimum=-4.0, maximum=12.0)
+alpha_2 = Uniform(name='alpha_2', minimum=-4.0, maximum=12.0)
+beta = 5
+mmax = 300.0
+mlow_1 = 4
+mlow_2 = 3
+break_mass = 35
+mpp_1 = Uniform(name='mpp_1', minimum=5.0, maximum=20.0)
+mpp_2 = Uniform(name='mpp_2', minimum=25.0, maximum=55.0)
+
+sigpp_1 = 1
+sigpp_2 = 3
+
+delta_m_1 = Uniform(name='delta_m_1', minimum=0.0, maximum=10.0, boundary='reflective')
+delta_m_2 = Uniform(name='delta_m_2', minimum=0.0, maximum=10.0, boundary='reflective')
+
+lam_0 = DirichletElement(order=0, n_dimensions=3, label='lam_')
+lam_1 = DirichletElement(order=1, n_dimensions=3, label='lam_')
+
+lamb = 4
+
+mu_chi_eff = 0
+sigma_chi_eff = 0.1
+
+mu_chi_p = 0.2
+sigma_chi_p = 0.3

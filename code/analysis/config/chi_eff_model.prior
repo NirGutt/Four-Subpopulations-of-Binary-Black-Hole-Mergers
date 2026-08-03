@@ -1,0 +1,51 @@
+f_1 = Uniform(name='f_1', minimum=0.0, maximum=1.0)
+f_2 = ConditionalUniform(name='f_2', minimum=0.0, maximum=1.0, condition_func='chi_eff_model.f_2_condition')
+f_3 = ConditionalUniform(name='f_3', minimum=0.0, maximum=1.0, condition_func='chi_eff_model.f_3_condition')
+
+mu_chi_eff = Uniform(name='mu_chi_eff', minimum=-0.3, maximum=0.3)
+sigma_chi_eff = Uniform(name='sigma_chi_eff', minimum=0.02, maximum=0.4)
+xi_1 = Uniform(name='xi_1', minimum=0.0, maximum=1.0)
+xi_2 = Uniform(name='xi_2', minimum=0.0, maximum=1.0)
+xi_3 = Uniform(name='xi_3', minimum=0.0, maximum=1.0)
+xi_4 = Uniform(name='xi_4', minimum=0.0, maximum=1.0)
+chi_uniform_min = -0.47
+chi_uniform_max = 0.47
+
+m1_min_1 = Uniform(name='m1_min_1', minimum=3.0, maximum=7.0)
+m1_max_1 = Uniform(name='m1_max_1', minimum=10.0, maximum=22.0)
+delta_m_1 = Uniform(name='delta_m_1', minimum=0.3, maximum=4.0)
+
+mu_m1_1 = Uniform(name='mu_m1_1', minimum=8.0, maximum=12.0)
+sigma_m1_1 = Uniform(name='sigma_m1_1', minimum=0.3, maximum=4.0)
+mu_q_1 = Uniform(name='mu_q_1', minimum=0.5, maximum=1.0)
+sigma_q_1 = Uniform(name='sigma_q_1', minimum=0.02, maximum=0.4)
+
+m1_min_2 = Uniform(name='m1_min_2', minimum=3.0, maximum=20.0)
+m1_max_2 = Uniform(name='m1_max_2', minimum=20.0, maximum=60.0)
+smooth_m1_2 = Uniform(name='smooth_m1_2', minimum=0.3, maximum=5.0)
+alpha_m1_2 = Uniform(name='alpha_m1_2', minimum=-2.0, maximum=10.0)
+mu_m2_2 = Uniform(name='mu_m2_2', minimum=6.0, maximum=14.0)
+sigma_m2_2 = Uniform(name='sigma_m2_2', minimum=0.5, maximum=6.0)
+
+m1_min_3 = Uniform(name='m1_min_3', minimum=3.0, maximum=28.0)
+m1_max_3 = Uniform(name='m1_max_3', minimum=30.0, maximum=70.0)
+smooth_m1_3 = Uniform(name='smooth_m1_3', minimum=0.3, maximum=6.0)
+alpha_m1_3 = Uniform(name='alpha_m1_3', minimum=-2.0, maximum=10.0)
+
+lambda_m1_peak_3 = Uniform(name='lambda_m1_peak_3', minimum=0.0, maximum=1.0)
+mu_m1_peak_3 = Uniform(name='mu_m1_peak_3', minimum=22.0, maximum=42.0)
+sigma_m1_peak_3 = Uniform(name='sigma_m1_peak_3', minimum=1.0, maximum=12.0)
+mu_q_3 = Uniform(name='mu_q_3', minimum=0.5, maximum=1.0)
+sigma_q_3 = Uniform(name='sigma_q_3', minimum=0.02, maximum=0.4)
+
+m1_min_4 = Uniform(name='m1_min_4', minimum=30.0, maximum=75.0)
+m1_max_4 = Uniform(name='m1_max_4', minimum=160.0, maximum=300.0)
+smooth_m1_4 = Uniform(name='smooth_m1_4', minimum=0.1, maximum=3.0)
+alpha_m1_4 = Uniform(name='alpha_m1_4', minimum=0.0, maximum=12.0)
+mu_q_4 = Uniform(name='mu_q_4', minimum=0.2, maximum=0.9)
+sigma_q_4 = Uniform(name='sigma_q_4', minimum=0.05, maximum=0.5)
+
+kappa = Uniform(name='kappa', minimum=-1.0, maximum=6.0)
+
+mu_chi_p = Uniform(name='mu_chi_p', minimum=0.1, maximum=0.7)
+sigma_chi_p = Uniform(name='sigma_chi_p', minimum=0.1, maximum=0.6)

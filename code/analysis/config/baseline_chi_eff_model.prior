@@ -1,0 +1,34 @@
+alpha_1 = Uniform(name='alpha_1', minimum=-4.0, maximum=12.0)
+alpha_2 = Uniform(name='alpha_2', minimum=-4.0, maximum=12.0)
+
+beta = Uniform(name='beta', minimum=-2.0, maximum=7.0)
+
+mmax = 300.0
+
+mlow_1 = Uniform(name='mlow_1', minimum=3.0, maximum=10.0)
+mlow_2 = ConditionalUniform(name='mlow_2',minimum=3.0,maximum=10.0,condition_func='ThreePeaks_mass_models.mlow_2_condition')
+
+break_mass = Uniform(name='break_mass', minimum=20.0, maximum=50.0)
+
+
+mpp_1 = Uniform(name='mpp_1', minimum=5.0, maximum=20.0)
+mpp_2 = Uniform(name='mpp_2', minimum=25.0, maximum=55.0)
+
+sigpp_1 = Uniform(name='sigpp_1', minimum=0.3, maximum=10.0)
+sigpp_2 = Uniform(name='sigpp_2', minimum=0.3, maximum=15.0)
+
+delta_m_1 = Uniform(name='delta_m_1', minimum=0.0, maximum=10.0, boundary='reflective')
+delta_m_2 = Uniform(name='delta_m_2', minimum=0.0, maximum=10.0, boundary='reflective')
+
+
+lam_0 = DirichletElement(order=0, n_dimensions=3, label='lam_')
+lam_1 = DirichletElement(order=1, n_dimensions=3, label='lam_')
+
+lamb = Uniform(name='lamb', minimum=-10.0, maximum=10.0)
+
+
+mu_chi_eff = Uniform(name='mu_chi_eff', minimum=-0.3, maximum=0.3)
+sigma_chi_eff = Uniform(name='sigma_chi_eff', minimum=0.02, maximum=0.4)
+
+mu_chi_p = Uniform(name='mu_chi_p', minimum=0.1, maximum=0.7)
+sigma_chi_p = Uniform(name='sigma_chi_p', minimum=0.1, maximum=0.6)
