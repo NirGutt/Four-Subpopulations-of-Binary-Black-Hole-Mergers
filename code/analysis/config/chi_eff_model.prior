@@ -1,6 +1,6 @@
-f_1 = Uniform(name='f_1', minimum=0.0, maximum=1.0)
-f_2 = ConditionalUniform(name='f_2', minimum=0.0, maximum=1.0, condition_func='chi_eff_model.f_2_condition')
-f_3 = ConditionalUniform(name='f_3', minimum=0.0, maximum=1.0, condition_func='chi_eff_model.f_3_condition')
+f_0 = DirichletElement(order=0, n_dimensions=4, label="f_")
+f_1 = DirichletElement(order=1, n_dimensions=4, label="f_")
+f_2 = DirichletElement(order=2, n_dimensions=4, label="f_")
 
 mu_chi_eff = Uniform(name='mu_chi_eff', minimum=-0.3, maximum=0.3)
 sigma_chi_eff = Uniform(name='sigma_chi_eff', minimum=0.02, maximum=0.4)
