@@ -4,14 +4,16 @@ This file lists the prior ranges used for the four-component effective-spin popu
 
 ## Mixing fractions
 
-| Parameter | Prior | Minimum | Maximum | Notes |
-|---|---:|---:|---:|---|
-| `f_1` | Uniform | 0.0 | 1.0 | Mixing fraction for the low-mass component |
-| `f_2` | ConditionalUniform | 0.0 | 1.0 | Mixing fraction for the horizontal component |
-| `f_3` | ConditionalUniform | 0.0 | 1.0 | Mixing fraction for the diagonal component |
+| Parameter | Prior | Notes |
+|---|---|---|
+| `f_1, f_2, f_3, f_4` | Symmetric Dirichlet (`alpha = 1`) | Mixing fractions for the low-mass, horizontal, diagonal, and high-mass components |
 
-The fourth mixing fraction is determined by normalization,
-`f_4 = 1 - f_1 - f_2 - f_3`, and corresponds to the high-mass component.
+The four mixing fractions jointly follow a symmetric Dirichlet prior with
+concentration parameter `alpha = 1` for each component and satisfy
+
+`f_1 + f_2 + f_3 + f_4 = 1`.
+
+This prior treats all four subpopulations symmetrically.
 
 ## Effective-spin model
 
