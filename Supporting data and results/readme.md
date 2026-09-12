@@ -21,7 +21,7 @@ Posterior corner plots for the population hyperparameters are provided in:
 
 - [Corner plots](corner_plots/)
 
-The corner plots show the inferred posterior distributions for the main hyperparameters of the physical-spin and effective-spin analyses.
+The corner plots show the inferred posterior distributions for the main hyperparameters of the component-spin and effective-spin analyses.
 
 ## Component naming
 
