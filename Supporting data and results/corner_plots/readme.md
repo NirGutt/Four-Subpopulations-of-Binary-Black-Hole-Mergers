@@ -7,7 +7,7 @@ The posterior corner plots are organized by model, component, and parameter grou
 
 | Component | Physical-spin model | Effective-spin model |
 |---|---|---|
-| Low-mass | [physical_spin/mass/low_mass_mass.pdf](physical_spin/mass/low_mass_mass.pdf) | [effective_spin/mass/low_mass_mass.pdf](effective_spin/mass/corner_low_mass_mass.pdf) |
+| Low-mass | [component_spin/mass/low_mass_mass.pdf](physical_spin/mass/low_mass_mass.pdf) | [effective_spin/mass/low_mass_mass.pdf](effective_spin/mass/corner_low_mass_mass.pdf) |
 | Horizontal | [physical_spin/mass/horizontal_mass.pdf](physical_spin/mass/horizontal_mass.pdf) | [effective_spin/mass/horizontal_mass.pdf](effective_spin/mass/corner_horizontal_mass.pdf) |
 | Diagonal | [physical_spin/mass/diagonal_mass.pdf](physical_spin/mass/diagonal_mass.pdf) | [effective_spin/mass/diagonal_mass.pdf](effective_spin/mass/corner_diagonal_mass.pdf) |
 | High-mass | [physical_spin/mass/high_mass_mass.pdf](physical_spin/mass/high_mass_mass.pdf) | [effective_spin/mass/high_mass_mass.pdf](effective_spin/mass/corner_high_mass_mass.pdf) |
