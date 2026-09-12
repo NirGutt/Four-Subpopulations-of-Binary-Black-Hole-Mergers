@@ -10,7 +10,7 @@ This repository contains supporting data and is intended to document the populat
 
 The prior ranges for the two population models are provided in:
 
-- [Physical-spin model prior ranges](priors/phys-spin.md)
+- [Component-spin model prior ranges](priors/component-spin.md)
 - [Effective-spin model prior ranges](priors/effective-spins.md)
 
 These files list the prior ranges for the mass, redshift, and spin hyperparameters used in the four-component population model.
