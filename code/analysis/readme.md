@@ -65,7 +65,7 @@ The analysis is defined by two files (the names are used only for example here):
 
 ```text
 code/analysis/config/analysis.ini
-code/analysis/config/population.prior
+code/analysis/config/priors/population.prior
 ```
 
 The INI file specifies:
@@ -76,7 +76,7 @@ The INI file specifies:
 - the prior file;
 - the sampler and sampler settings;
 
-An example INI file is provided under `code/analysis/config/`. However, it will need to be adapted to the specific model and analysis configuration.
+Examples of INI files are provided under `code/analysis/config/`. However, it will need to be adapted to the specific path used.
 
 The model implementation is stored under `code/analysis/models/` and is passed
 to `gwpopulation_pipe` through the `source-files` configuration option.
