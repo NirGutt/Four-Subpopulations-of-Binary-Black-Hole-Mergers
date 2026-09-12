@@ -4,20 +4,6 @@ from gwpopulation.models.redshift import PowerLawRedshift
 
 
 
-def f_2_condition(reference_params, f_1):
-    return dict(
-        minimum=0.0,
-        maximum=1.0 - f_1,
-    )
-
-
-def f_3_condition(reference_params, f_1, f_2):
-    return dict(
-        minimum=0.0,
-        maximum=1.0 - f_1 - f_2,
-    )
-
-
 def _safe_where(mask, x, y=0.0):
     return xp.where(mask, x, y)
 
