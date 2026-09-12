@@ -1,1 +1,14 @@
 
+mu_chi_eff = Uniform(name='mu_chi_eff', minimum=-0.3, maximum=0.3)
+sigma_chi_eff = Uniform(name='sigma_chi_eff', minimum=0.02, maximum=0.4)
+
+# Fraction of broad/uniform chi_eff component.
+# p(chi_eff) = (1 - xi_eff) Gaussian + xi_eff Uniform
+xi_eff = Uniform(name="xi_eff", minimum=0.0, maximum=1.0)
+
+# Fixed broad-spin support, matching your PiStroke model.
+chi_uniform_min = -0.47
+chi_uniform_max = 0.47
+
+mu_chi_p = Uniform(name='mu_chi_p', minimum=0.1, maximum=0.7)
+sigma_chi_p = Uniform(name='sigma_chi_p', minimum=0.1, maximum=0.6)
