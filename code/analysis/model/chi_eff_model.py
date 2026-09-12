@@ -2,18 +2,6 @@ from gwpopulation.utils import xp
 from gwpopulation.models.mass import truncnorm
 from gwpopulation.models.redshift import PowerLawRedshift
 
-def f_2_condition(reference_params, f_1):
-    return dict(
-        minimum=0.0,
-        maximum=1.0 - f_1,
-    )
-
-
-def f_3_condition(reference_params, f_1, f_2):
-    return dict(
-        minimum=0.0,
-        maximum=1.0 - f_1 - f_2,
-    )
 
 def planck_taper_low(m, mmin, delta_m):
     return planck_taper(m, mmin, delta_m)
@@ -237,9 +225,9 @@ class PiStrokeFourComponentMassSpin:
 
     variable_names = [
         # Mixture fractions
+        "f_0",
         "f_1",
         "f_2",
-        "f_3",
 
         # Shared spin Gaussian
         "mu_chi_eff",
@@ -311,27 +299,16 @@ class PiStrokeFourComponentMassSpin:
         mmin=2.0,
         mmax=300.0,
         qmin=1e-3,
-        normalization_shape=(1500, 1500),
+        normalization_steps=2000,
         z_max=1.9,
     ):
         self.mmin = mmin
         self.mmax = mmax
         self.qmin = qmin
     
-        self.m1_grid = xp.linspace(mmin, mmax, normalization_shape[0])
-        self.q_grid = xp.linspace(qmin, 1.0, normalization_shape[1])
-    
-        self.dm1 = (mmax - mmin) / (normalization_shape[0] - 1)
-        self.dq = (1.0 - qmin) / (normalization_shape[1] - 1)
-    
-        self.m1s_grid, self.qs_grid = xp.meshgrid(self.m1_grid, self.q_grid)
-    
-        self.grid_dataset = {
-            "mass_1": self.m1s_grid,
-            "mass_ratio": self.qs_grid,
-        }
-    
-        # Use GWPopulation's own redshift model.
+        self.m1_grid = xp.linspace(mmin, mmax, normalization_steps)
+           
+        # Use GWPopulation's redshift model.
         self.redshift_model = PowerLawRedshift(z_max=z_max)
 
     def __call__(self, dataset, **params):
@@ -341,9 +318,9 @@ class PiStrokeFourComponentMassSpin:
         chi_p = dataset["chi_p"]
         redshift = dataset["redshift"]
 
-        f1 = params["f_1"]
-        f2 = params["f_2"]
-        f3 = params["f_3"]
+        f1 = params["f_0"]
+        f2 = params["f_1"]
+        f3 = params["f_2"]
         f4 = 1.0 - f1 - f2 - f3
 
         valid_fractions = (f1 >= 0.0) & (f2 >= 0.0) & (f3 >= 0.0) & (f4 >= 0.0)
@@ -352,16 +329,6 @@ class PiStrokeFourComponentMassSpin:
         p2 = self.component_2(dataset, **params)
         p3 = self.component_3(dataset, **params)
         p4 = self.component_4(dataset, **params)
-
-        z1 = self.component_1_norm(**params)
-        z2 = self.component_2_norm(**params)
-        z3 = self.component_3_norm(**params)
-        z4 = self.component_4_norm(**params)
-
-        p1 = p1 / z1
-        p2 = p2 / z2
-        p3 = p3 / z3
-        p4 = p4 / z4
 
         chi_uniform_min = params.get("chi_uniform_min", -0.47)
         chi_uniform_max = params.get("chi_uniform_max", 0.47)
@@ -425,16 +392,6 @@ class PiStrokeFourComponentMassSpin:
 
         return prob
     
-    def _integrate_grid(self, prob):
-        return xp.trapz(
-            xp.trapz(
-                prob,
-                dx=self.dq,
-                axis=0,
-            ),
-            dx=self.dm1,
-            axis=0,
-        )
     
     def p_z_component(self, redshift, kappa):
         return self.redshift_model(
@@ -442,18 +399,7 @@ class PiStrokeFourComponentMassSpin:
             lamb=kappa,
         )
 
-    def component_1_norm(self, **params):
-        return self._integrate_grid(self.component_1(self.grid_dataset, **params))
-
-    def component_2_norm(self, **params):
-        return self._integrate_grid(self.component_2(self.grid_dataset, **params))
-
-    def component_3_norm(self, **params):
-        return self._integrate_grid(self.component_3(self.grid_dataset, **params))
-
-    def component_4_norm(self, **params):
-        return self._integrate_grid(self.component_4(self.grid_dataset, **params))
-
+  
     def component_1(self, dataset, **params):
         """
         Low-mass 
@@ -461,33 +407,29 @@ class PiStrokeFourComponentMassSpin:
         m1 = dataset["mass_1"]
         q = dataset["mass_ratio"]
 
-
-        p_m1 = truncnorm(
+        p_m1 = _normalized_smoothed_truncnorm(
             m1,
+            norm_x=self.m1_grid,
             mu=params["mu_m1_1"],
             sigma=params["sigma_m1_1"],
             low=params["m1_min_1"],
             high=params["m1_max_1"],
+            smooth=params["delta_m_1"],
         )
-        
-        p_m1 *= smooth_window(
-            m1,
-            mmin=params["m1_min_1"],
-            mmax=params["m1_max_1"],
-            delta_low=params["delta_m_1"],
-            delta_high=params["delta_m_1"],
-        )
-                
+
+        q_low = self.mmin / m1
 
         p_q = truncnorm(
             q,
             mu=params["mu_q_1"],
             sigma=params["sigma_q_1"],
-            low=self.qmin,
+            low=q_low,
             high=1.0,
         )
 
         return p_m1 * p_q
+
+       
 
     def component_2(self, dataset, **params):
         """
@@ -497,8 +439,9 @@ class PiStrokeFourComponentMassSpin:
         q = dataset["mass_ratio"]
         m2 = m1 * q
 
-        p_m1 = _powerlaw_with_two_sided_smoothing(
+        p_m1 = _normalized_powerlaw_with_two_sided_smoothing(
             m1,
+            norm_m=self.m1_grid,
             alpha=params["alpha_m1_2"],
             low=params["m1_min_2"],
             high=params["m1_max_2"],
@@ -506,11 +449,12 @@ class PiStrokeFourComponentMassSpin:
             smooth_high=params["smooth_m1_2"],
         )
 
+        q_low = self.mmin / m1
         p_m2 = truncnorm(
             m2,
             mu=params["mu_m2_2"],
             sigma=params["sigma_m2_2"],
-            low=self.mmin,
+            low=q_low,
             high=m1,
         )
 
@@ -559,12 +503,12 @@ class PiStrokeFourComponentMassSpin:
             m1,
             **params,
         )
-
+        q_low = self.mmin / m1
         p_q = truncnorm(
             q,
             mu=params["mu_q_3"],
             sigma=params["sigma_q_3"],
-            low=self.qmin,
+            low=q_low,
             high=1.0,
         )
 
@@ -579,20 +523,23 @@ class PiStrokeFourComponentMassSpin:
         m1 = dataset["mass_1"]
         q = dataset["mass_ratio"]
     
-        p_m1 = _powerlaw_with_two_sided_smoothing(
+        p_m1 = _normalized_powerlaw_with_two_sided_smoothing(
             m1,
+            norm_m=self.m1_grid,
             alpha=params["alpha_m1_4"],
             low=params["m1_min_4"],
             high=params["m1_max_4"],
             smooth_low=params["smooth_m1_4"],
             smooth_high=params["smooth_m1_4"],
         )
-    
+
+        q_low = self.mmin / m1
+
         p_q = truncnorm(
             q,
             mu=params["mu_q_4"],
             sigma=params["sigma_q_4"],
-            low=self.qmin,
+            low=q_low,
             high=1.0,
         )
         
