@@ -8,18 +8,18 @@ The posterior corner plots are organized by model, component, and parameter grou
 | Component | Physical-spin model | Effective-spin model |
 |---|---|---|
 | Low-mass | [component_spin/mass/low_mass_mass.pdf](physical_spin/mass/low_mass_mass.pdf) | [effective_spin/mass/low_mass_mass.pdf](effective_spin/mass/corner_low_mass_mass.pdf) |
-| Horizontal | [physical_spin/mass/horizontal_mass.pdf](physical_spin/mass/horizontal_mass.pdf) | [effective_spin/mass/horizontal_mass.pdf](effective_spin/mass/corner_horizontal_mass.pdf) |
-| Diagonal | [physical_spin/mass/diagonal_mass.pdf](physical_spin/mass/diagonal_mass.pdf) | [effective_spin/mass/diagonal_mass.pdf](effective_spin/mass/corner_diagonal_mass.pdf) |
-| High-mass | [physical_spin/mass/high_mass_mass.pdf](physical_spin/mass/high_mass_mass.pdf) | [effective_spin/mass/high_mass_mass.pdf](effective_spin/mass/corner_high_mass_mass.pdf) |
+| Horizontal | [component_spin/mass/horizontal_mass.pdf](physical_spin/mass/horizontal_mass.pdf) | [effective_spin/mass/horizontal_mass.pdf](effective_spin/mass/corner_horizontal_mass.pdf) |
+| Diagonal | [component_spin/mass/diagonal_mass.pdf](physical_spin/mass/diagonal_mass.pdf) | [effective_spin/mass/diagonal_mass.pdf](effective_spin/mass/corner_diagonal_mass.pdf) |
+| High-mass | [component_spin/mass/high_mass_mass.pdf](physical_spin/mass/high_mass_mass.pdf) | [effective_spin/mass/high_mass_mass.pdf](effective_spin/mass/corner_high_mass_mass.pdf) |
 
 ### Spin parameters
 
 | Component | Physical-spin model | Effective-spin model |
 |---|---|---|
-| Low-mass | [physical_spin/spin/low_mass_spin.pdf](physical_spin/spin/low_mass_spin.pdf) | [effective_spin/spin/low_mass_spin.pdf](effective_spin/spin/corner_low_mass_spin.pdf) |
-| Horizontal | [physical_spin/spin/horizontal_spin.pdf](physical_spin/spin/horizontal_spin.pdf) | [effective_spin/spin/horizontal_spin.pdf](effective_spin/spin/corner_horizontal_spin.pdf) |
-| Diagonal | [physical_spin/spin/diagonal_spin.pdf](physical_spin/spin/diagonal_spin.pdf) | [effective_spin/spin/diagonal_spin.pdf](effective_spin/spin/corner_diagonal_spin.pdf) |
-| High-mass | [physical_spin/spin/high_mass_spin.pdf](physical_spin/spin/high_mass_spin.pdf) | [effective_spin/spin/high_mass_spin.pdf](effective_spin/spin/corner_high_mass_spin.pdf) |
+| Low-mass | [component_spin/spin/low_mass_spin.pdf](physical_spin/spin/low_mass_spin.pdf) | [effective_spin/spin/low_mass_spin.pdf](effective_spin/spin/corner_low_mass_spin.pdf) |
+| Horizontal | [component_spin/spin/horizontal_spin.pdf](physical_spin/spin/horizontal_spin.pdf) | [effective_spin/spin/horizontal_spin.pdf](effective_spin/spin/corner_horizontal_spin.pdf) |
+| Diagonal | [component_spin/spin/diagonal_spin.pdf](physical_spin/spin/diagonal_spin.pdf) | [effective_spin/spin/diagonal_spin.pdf](effective_spin/spin/corner_diagonal_spin.pdf) |
+| High-mass | [component_spin/spin/high_mass_spin.pdf](physical_spin/spin/high_mass_spin.pdf) | [effective_spin/spin/high_mass_spin.pdf](effective_spin/spin/corner_high_mass_spin.pdf) |
 
 ## Component naming
 
