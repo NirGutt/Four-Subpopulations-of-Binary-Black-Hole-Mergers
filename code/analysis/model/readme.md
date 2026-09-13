@@ -3,7 +3,7 @@
 Brief description of the population models used in the analysis.
 
 - `ThreePeaks_mass_models.py`  
-  LVK-like baseline mass model (Broken Power Law + 2 Peaks).
+  LVK baseline mass model (Broken Power Law + 2 Peaks).
 
 - `baseline_chi_eff_model.py`  
   LVK-like baseline model using the baseline effective-spin prescription.
