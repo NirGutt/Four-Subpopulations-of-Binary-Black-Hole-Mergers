@@ -653,4 +653,4 @@ class PiStrokeFourComponentPhysicalSpin:
 
         
         
-        return p_m1 * p_q 
+       
