@@ -339,7 +339,7 @@ class PiStrokeFourComponentMassSpin:
         valid_fractions = (f1 >= 0.0) & (f2 >= 0.0) & (f3 >= 0.0) & (f4 >= 0.0) & (f5 >= 0.0)
 
 
-        valid_fractions = (f1 >= 0.0)  & (f3 >= 0.0) & (f4 >= 0.0)
+        
 
         p1 = self.component_1(dataset, **params)
         p2 = self.component_2(dataset, **params)
