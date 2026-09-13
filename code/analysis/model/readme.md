@@ -15,10 +15,10 @@ Brief description of the population models used in the analysis.
   Alternative LVK-like effective-spin baseline model.
 
 - `four_subs_chi_eff_model.py`  
-  Main four-subpopulation model using effective spins (`chi_eff`, `chi_p`).
+  Main four-subpopulation model using effective spins.
 
 - `four_subs_component_spin_model.py`  
-  Main four-subpopulation model using component spin magnitudes and tilts.
+  Main four-subpopulation model using component spins.
 
 - `three_subs_chi_eff_model.py`  
   Three-subpopulation test using the effective-spin model.
@@ -27,7 +27,7 @@ Brief description of the population models used in the analysis.
   Three-subpopulation test using the component-spin model.
 
 - `five_subs_chi_eff_model.py`  
-  Five-subpopulation test with an additional intermediate-mass component.
+  Five-subpopulation test with an additional intermediate-mass component using effective-spins.
 
 - `five_subs_component_spin_model.py`  
   Five-subpopulation test using component spins.
@@ -42,7 +42,7 @@ Brief description of the population models used in the analysis.
   Four-subpopulation model with separate primary and secondary spin distributions.
 
 - `seperated_redshift_four_subs_component_spin_model.py`  
-  Four-subpopulation model with independent redshift evolution for each subpopulation.
+  Four-subpopulation model with independent redshift evolution for each subpopulation using component spins.
 
 - `alternative_horizontal_four_subs_component_spin_model.py`  
-  Four-subpopulation model with the alternative horizontal-component mass parameterisation.
+  Four-subpopulation model with the alternative horizontal-component mass parameterisation using component spins.
