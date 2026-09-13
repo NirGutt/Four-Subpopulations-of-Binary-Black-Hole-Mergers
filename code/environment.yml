@@ -1,0 +1,212 @@
+# CUDA packages are installed only on Linux x86-64 systems gwpopulation_pipe is not installed if we are not on linux.
+name: populations_env
+channels:
+  - conda-forge
+  - igwn
+dependencies:
+  - python=3.11
+  - pip=25.3
+  - setuptools=80.9.0
+  - wheel=0.45.1
+  - pip:
+      - absl-py==2.3.1
+      - array-api-compat==1.13.0
+      - astroplan==0.10.1
+      - astropy==7.2.0
+      - astropy-healpix==1.1.3
+      - astropy-iers-data==0.2026.1.19.0.42.31
+      - astunparse==1.6.3
+      - attrs==25.4.0
+      - beartype==0.22.9
+      - bibtexparser==2.0.0b9
+      - bilby==2.7.1
+      - bilby-cython==0.5.3
+      - bilby-pipe==1.8.0
+      - cached-interpolate==0.3.2
+      - certifi==2026.1.4
+      - cffi==2.0.0
+      - charset-normalizer==3.4.4
+      - click==8.3.1
+      - cloudpickle==3.1.2
+      - configargparse==1.7.1
+      - contourpy==1.3.3
+      - corner==2.2.3
+      - cryptography==46.0.3
+      - 'cuda-bindings==13.2.0; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'cuda-pathfinder==1.5.4; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'cuda-toolkit==13.0.2; platform_system == "Linux" and platform_machine == "x86_64"'
+      - cycler==0.12.1
+      - dask==2026.3.0
+      - dask-image==2025.11.0
+      - dataclassish==0.8.0
+      - dateparser==1.2.2
+      - decorator==5.2.1
+      - dill==0.4.1
+      - dm-tree==0.1.9
+      - donfig==0.8.1.post1
+      - dqsegdb2==1.3.0
+      - dynesty==3.0.0
+      - emcee==3.1.6
+      - equinox==0.13.2
+      - filelock==3.24.3
+      - flatbuffers==25.12.19
+      - fonttools==4.61.1
+      - fsspec==2026.3.0
+      - future==1.0.0
+      - gast==0.7.0
+      - google-crc32c==1.8.0
+      - google-pasta==0.2.0
+      - grpcio==1.76.0
+      - gwdatafind==2.1.1
+      - gwosc==0.8.1
+      - gwpopulation==1.2.1
+      - 'gwpopulation-pipe==0.4.3; platform_system == "Linux"'
+      - gwpy==3.0.14
+      - h5py==3.15.1
+      - healpy==1.19.0
+      - idna==3.11
+      - igwn-auth-utils==1.4.0
+      - igwn-ligolw==2.1.1
+      - igwn-segments==2.1.1
+      - imageio==2.37.3
+      - importlib-metadata==9.0.0
+      - inflection==0.5.1
+      - is-annotated==1.0.1
+      - jax==0.9.0
+      - 'jax-cuda13-pjrt==0.9.0; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'jax-cuda13-plugin==0.9.0; platform_system == "Linux" and platform_machine == "x86_64"'
+      - jaxlib==0.9.0
+      - jaxns==2.6.9
+      - jaxtyping==0.3.5
+      - jinja2==3.1.6
+      - joblib==1.5.3
+      - juliacall==0.9.31
+      - juliapkg==0.1.23
+      - keras==3.13.1
+      - kiwisolver==1.4.9
+      - lalsuite==7.26.1
+      - libclang==18.1.1
+      - ligo-gracedb==2.14.3
+      - ligo-segments==1.4.0
+      - ligo-skymap==2.5.3
+      - ligotimegps==2.1.0
+      - llvmlite==0.46.0
+      - locket==1.0.0
+      - lscsoft-glue==4.1.1
+      - markdown==3.10.1
+      - markdown-it-py==4.0.0
+      - markupsafe==3.0.3
+      - matplotlib==3.10.8
+      - mdurl==0.1.2
+      - ml-dtypes==0.5.4
+      - mpmath==1.3.0
+      - namex==0.1.0
+      - narwhals==2.15.0
+      - networkx==3.6.1
+      - numba==0.64.0
+      - numcodecs==0.16.5
+      - numexpr==2.14.1
+      - numpy==2.3.5
+      - numpy-quaternion==2024.0.13
+      - 'nvidia-cublas==13.1.0.3; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-cccl==13.1.115; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-crt==13.1.115; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-cupti==13.0.85; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-nvcc==13.1.115; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-nvrtc==13.0.88; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cuda-runtime==13.0.96; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cudnn-cu13==9.19.0.56; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cufft==12.0.0.61; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cufile==1.15.1.6; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-curand==10.4.0.35; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cusolver==12.0.4.66; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cusparse==12.6.3.3; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-cusparselt-cu13==0.8.0; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-nccl-cu13==2.28.9; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-nvjitlink==13.0.88; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-nvshmem-cu13==3.4.5; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-nvtx==13.0.85; platform_system == "Linux" and platform_machine == "x86_64"'
+      - 'nvidia-nvvm==13.1.115; platform_system == "Linux" and platform_machine == "x86_64"'
+      - opt-einsum==3.4.0
+      - optional-dependencies==0.4.0
+      - optree==0.18.0
+      - optype==0.13.4
+      - packaging==25.0
+      - pandas==2.3.3
+      - partd==1.4.2
+      - pbd==0.9
+      - pesummary==1.6.1
+      - pillow==12.1.0
+      - pims==0.7
+      - plotly==6.5.2
+      - plum-dispatch==2.6.1
+      - popsummary==0.1.0
+      - protobuf==6.33.4
+      - pyarrow==23.0.1
+      - pyavm==0.9.9
+      - pycondor==0.6.0
+      - pycparser==2.23
+      - pyerfa==2.0.1.5
+      - pyfftw==0.15.1
+      - pygments==2.19.2
+      - pyjwt==2.10.1
+      - pylatexenc==2.10
+      - pyparsing==3.3.2
+      - python-dateutil==2.9.0.post0
+      - python-ligo-lw==1.8.4
+      - pytz==2025.2
+      - pyyaml==6.0.3
+      - qnm==0.4.4
+      - quaternionic==1.0.17
+      - quax==0.2.1
+      - quax-blocks==0.4.0
+      - quaxed==0.10.4
+      - regex==2026.1.15
+      - reproject==0.19.0
+      - requests==2.32.5
+      - rich==14.2.0
+      - safe-netrc==1.0.1
+      - scikit-learn==1.8.0
+      - scipy==1.16.3
+      - scitokens==1.8.1
+      - scri==2024.0.6
+      - seaborn==0.13.2
+      - semver==3.0.4
+      - shapely==2.1.2
+      - six==1.17.0
+      - skymap-overlap==0.1.6
+      - slicerator==1.1.0
+      - spherical==1.0.18
+      - spherical-functions==2023.0.2
+      - spinsfast==2022.4.10
+      - sxs==2025.0.23
+      - sxscatalog==3.0.18
+      - sympy==1.14.0
+      - tensorboard==2.20.0
+      - tensorboard-data-server==0.7.2
+      - tensorflow==2.20.0
+      - tensorflow-probability==0.25.0
+      - termcolor==3.3.0
+      - tfp-nightly==0.26.0.dev20260121
+      - threadpoolctl==3.6.0
+      - tifffile==2026.3.3
+      - tomli==2.4.0
+      - tomlkit==0.14.0
+      - toolz==1.1.0
+      - torch==2.11.0
+      - tqdm==4.67.1
+      - 'triton==3.6.0; platform_system == "Linux" and platform_machine == "x86_64"'
+      - typing-extensions==4.15.0
+      - tzdata==2025.3
+      - tzlocal==5.3.1
+      - unxt==1.10.0
+      - unxt-api==1.10.0
+      - urllib3==2.6.3
+      - wadler-lindig==0.1.7
+      - wcosmo==0.5.4
+      - werkzeug==3.1.5
+      - wrapt==2.0.1
+      - xmmutablemap==0.2.1
+      - zarr==3.1.6
+      - zeroth==1.0.1
+      - zipp==3.23.1
